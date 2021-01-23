@@ -1,9 +1,9 @@
 <h1> DOS -- Ataque de negacão de serviço</h1>
 <p>Um utilitário bem simples, para fazer negação de serviço. Utilizando poucas bibliotecas, mas age de forma bem rápido.</p>
-<p>Utilitáriodesenvolvido em python3, deve ser utilizado em ambientes controlados e apenas para fins de estudo.</p>
+<p>Utilitário desenvolvido em python3, deve ser utilizado em ambientes controlados e apenas para fins de estudo.</p>
 
 <h2>###### MODO DE USO ##########</h2>
-<p>O usuário do digita em seu terminal linux a execução do script.</p>
+<p>O usuário digita em seu terminal linux a execução do script.</p>
 <p>Como no exemplo abaixo:</p>
   <spam>ex: ./dos.py</spam>
 <p>Após essa execução será solicitado o dominio ou IP a ser atacado.</p>
