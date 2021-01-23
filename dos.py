@@ -9,7 +9,7 @@ banner = '''
   / /_  / /| |/ /    / // /   / / / __/ / /   / /_/ /
  / __/ / ___ / /____/ // /___/ / / /___/ /___/ __  /
 /_/   /_/  |_\____/___/_____/_/ /_____/\____/_/ /_/
-Author   : Eduardo Amaral
+Autor: Eduardo Amaral - eduardo4maral@protonmail.com
 You Tube : https://www.youtube.com/faciltech
 github   : https://github.com/Amaroca
 Facebook : https://www.facebook.com/faciltech123
